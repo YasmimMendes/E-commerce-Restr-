@@ -1,0 +1,209 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awsome file link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- css file link -->
+    <link rel="stylesheet" href="{% static '/css/style.css'%}"/>
+    <title>Restaurant</title>
+  </head>
+  <body>
+   
+    <!-- header start -->
+    <header>
+      <a href="#home" class="logo"><i class="fas fa-utensils"></i> Restrô. </a>
+      <nav class="navbar">
+        <a href="#about">Sobre nós</a>
+        <a href="#menu">Cardápio</a>
+        <a href="#review">Avaliações</a>
+      </nav>
+      <div class="icons">
+        <i class="fas fa-bars" id="menu-btn"></i>
+        <i class="fas fa-search" id="search-btn"></i>
+        <i class="fas fa-shopping-cart" id="cart-btn"></i>
+        <i class="fas fa-heart" id="fav-btn"></i>
+      </div>
+    </header>
+    <!-- header ends -->
+
+    <!-- home section start -->
+    <section class="home" id="home">
+      <div class="content">
+        <h3><span>Comer bem</span> nunca foi tão <span>fácil!</span></h3>
+        <p>
+          Qualidade, sabor excepcional de sua culinária, somados a um serviço descontraído.
+        </p>
+        <a href="#menu" class="btn">Peça agora</a>
+      </div>
+    </section>
+    <!-- home section ends -->
+
+    <!-- about section start -->
+    <section class="about" id="about">
+      <h3 class="sub-heading">Sobre nós</h3>
+      <h1 class="heading"> Porque <span> escolher-nos? </span></h1>
+      <div class="row">
+        <div class="image">
+          <img src="{% static '/img/about-img.png' %}" alt="" />
+        </div>
+        <div class="content">
+          <h3> A melhor comida do país! </h3>
+          <p>
+            Com cortes de carne especiais e aperitivos icônicos, o Restrô caiu no gosto dos mais requintados paladares pela qualidade e sabor marcante da sua culinária. Inspirado na Itália, o restaurante 
+            enfatiza vários aspectos da cultura italiana.
+          </p>
+          <p>
+            No mundo, o restrô está em 3 países: Itália, França e o mais recente, no Brasil.
+          </p>
+          <div class="icons-container">
+            <div class="icons">
+              <i class="fas fa-shipping-fast"></i>
+              <span> Entrega rápida </span>
+            </div>
+            <div class="icons">
+              <i class="fas fa-dollar-sign"></i>
+              <span> Pagamento fácil </span>
+            </div>
+            <div class="icons">
+              <i class="fas fa-headset"></i>
+              <span> Serviço 24 horas </span>
+            </div>
+          </div>
+          <a href="#" class="btn"> Saber mais </a>
+        </div>
+      </div>
+    </section>
+    <!-- about section ends -->
+
+    <!-- menu section start -->
+    <section class="menu" id="menu">
+      <h3 class="sub-heading"> Nosso Cardápio </h3>
+      <h1 class="heading">Pratos <span> especiais </span></h1>
+      <div class="box-container">
+        
+        {%  for produto in produtos %}
+        <div class="box">
+          <div class="image">
+            <img src="{{ produto.imagem.url }}" alt="" />
+            <a href="#" class="fas fa-heart"></a>
+          </div>
+          <div class="content">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <h3> {{produto.nome}} </h3>
+            <p>
+              {{produto.descricao}}
+            </p>
+            <a href="#" class="btn"> Comprar</a>
+            <span> {{produto.valor}} </span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    <!-- menu section ends -->
+
+    <!-- review section start -->
+    <section class="review" id="review">
+      <h1 class="heading"> Comentários de <span> nossos clientes </span></h1>
+      <div class="box-container">
+        <div class="box">
+          <img src="../static/img/pic-1.png" alt="" />
+        <h3> Ana M. Queiroga </h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>
+            Excepcional! Atendimento caloroso e um chef que tem prazer em receber os clientes.
+          </p>
+        </div>
+        <div class="box">
+          <img src="../static/img/pic-2.png" alt="" />
+          <h3> Maria F. Moura </h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>
+            O melhor jantar até hoje! 
+            De inicio ao fim foi a melhor refeição, desde a comida ao pairing de vinhos.
+          </p>
+        </div>
+        <div class="box">
+          <img src="../static/img/pic-3.png" alt="" />
+          <h3> João D. Silva </h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>
+            Fomos jantar no restaurante e tivemos uma bela experiencia gastronômica.
+            Garçons extremamente atenciosos e eficientes. 
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- review section ends -->
+
+    <!-- footer start -->
+    <footer class="footer" id="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3> Localização </h3>
+          <a href="#"> Itália </a>
+          <a href="#"> França </a>
+          <a href="#"> Brasil </a>
+        </div>
+        <div class="box">
+          <h3> Links utéis </h3>
+          <a href="#about"> Sobre nós </a>
+          <a href="#menu"> Cardápio </a>
+          <a href="#review"> Avaliações </a>
+        </div>
+        <div class="box">
+          <h3> Contatos </h3>
+          <a href="#">(12) 3456-7890</a>
+          <a href="#">(12) 3456-7890</a>
+          <a href="#">restro@gmail.com</a>
+        </div>
+        <div class="box">
+          <h3> Siga-nos! </h3>
+          <a href="#">facebook</a>
+          <a href="#">twitter</a>
+          <a href="#">intagram</a>
+        </div>
+      </div>
+      <div class="credit">
+        Restrô©2022.
+      </div>
+    </footer>
+    <!-- footer ends -->
+    
+    <!-- js file link -->
+    <script src="/produtos/static/js/script.js"></script>
+  </body>
+</html>
+{% static '/css/style.css'%}
+
